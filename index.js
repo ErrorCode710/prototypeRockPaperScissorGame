@@ -1,3 +1,24 @@
+let choice;
+
+const rock = document.querySelector("#Rock");
+const paper = document.querySelector("#Paper");
+const scissors = document.querySelector("#Scissors");
+
+rock.addEventListener("click", () => {
+  choice = "rock";
+});
+paper.addEventListener("click", () => {
+  choice = "paper";
+});
+scissors.addEventListener("click", () => {
+  choice = "scissors";
+});
+
+function getHumanChoice() {
+  return choice;
+}
+console.log(getHumanChoice());
+
 function getComputerChoice() {
   const randomNumber = Math.random();
 
@@ -5,15 +26,19 @@ function getComputerChoice() {
     return "rock";
   } else if (randomNumber <= 2 / 3) {
     return "paper";
-  } else if (randomNumber <= 1) {
+  } else {
     return "scissors";
   }
 }
-function getHumanChoice() {
-  let choice = prompt("Enter your choice: rock, paper or scissors");
-  console.log(choice);
-  return choice;
-}
+
+// function getHumanChoice() {
+//   // let choice = prompt("Enter your choice: rock, paper or scissors");
+//   // console.log(choice);
+//   // return choice;
+
+//   return choice;
+// }
+
 function playRound(humanSelection, computerSelection) {
   let choice = humanSelection;
   let result = computerSelection;
@@ -48,6 +73,7 @@ function playRound(humanSelection, computerSelection) {
     return "It's a tie";
   }
 }
+
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
@@ -82,4 +108,5 @@ function playGame() {
     console.log("The game is a tie!");
   }
 }
+
 playGame();
